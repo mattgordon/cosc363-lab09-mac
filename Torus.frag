@@ -1,7 +1,9 @@
 #version 330
 
+out vec4 diffuseColor;
+
 void main()
 {
-   gl_FragColor = vec4(1.0, 0.5, 0.25, 1.0);
+   diffuseColor = vec4(1.0, 0.5, 0.25, 1.0);
 
 }

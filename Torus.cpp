@@ -9,7 +9,7 @@
 #include <iostream>
 #include "Torus.h"
 #include <GL/glew.h>
-#include <GL/freeglut.h>
+#include <GLUT/glut.h>
 #include <cmath>
 using namespace std;
 
@@ -29,7 +29,7 @@ Torus:: Torus(float innerRadius, float outerRadius, int nsides, int nrings)
 	float theta = 0.0, cth, sth;
 	float phi = 0.0, cph, sph, term;
     int indx = 0;
-
+    
 	//Generate vertex coordinates
     for(int ring = 0; ring < nrings; ring++)
 	{
@@ -81,6 +81,7 @@ Torus:: Torus(float innerRadius, float outerRadius, int nsides, int nrings)
 			ielndx += 6;
         }
     }
+    
 
     glGenVertexArrays( 1, &vaoID );
     glBindVertexArray(vaoID);
@@ -100,7 +101,7 @@ Torus:: Torus(float innerRadius, float outerRadius, int nsides, int nrings)
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID[2]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, (ielndx) * sizeof(unsigned int), elems, GL_STATIC_DRAW);
-
+    
     delete [] verts;
     delete [] normals;
     delete [] elems;

@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <GL/glew.h>
-#include <GL/freeglut.h>
+#include <GLUT/glut.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "Shader.h"
@@ -69,12 +69,10 @@ void display()
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_3_2_CORE_PROFILE);
 	glutInitWindowSize(600, 600);
 	glutCreateWindow("A Torus");
-	glutInitContextVersion (4, 2);
-	glutInitContextProfile ( GLUT_CORE_PROFILE );
-
+    glewExperimental = GL_TRUE; 
 	if(glewInit() == GLEW_OK)
 	{
 		cout << "GLEW initialization successful! " << endl;
